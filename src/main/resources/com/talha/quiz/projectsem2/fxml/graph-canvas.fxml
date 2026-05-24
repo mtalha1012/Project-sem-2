@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="root-container" stylesheets="@../css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.talha.quiz.projectsem2.controller.GraphCanvas">
+
+    <!-- TOP NAVBAR -->
+    <HBox alignment="CENTER_LEFT" styleClass="nav-bar" spacing="16">
+        <padding><Insets bottom="14" left="24" right="24" top="14" /></padding>
+        <Label styleClass="logo-text" text="IsoGrapher" />
+        <HBox alignment="CENTER_LEFT" styleClass="badge-box">
+            <HBox.margin><Insets left="12" /></HBox.margin>
+            <Label styleClass="badge-label" text="● Graph Canvas" />
+        </HBox>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="backButton" onAction="#handleBack" styleClass="back-btn" text="&lt; Dashboard" />
+    </HBox>
+
+    <!-- TOOLBAR -->
+    <HBox alignment="CENTER_LEFT" styleClass="toolbar" spacing="8">
+        <padding><Insets bottom="10" left="24" right="24" top="10" /></padding>
+
+        <Label styleClass="field-label" text="MODE" />
+        <fx:define><ToggleGroup fx:id="modeGroup" /></fx:define>
+
+        <ToggleButton fx:id="nodeModeBtn" styleClass="mode-btn" text="Add Node (N)" toggleGroup="$modeGroup">
+            <HBox.margin><Insets left="8" /></HBox.margin>
+        </ToggleButton>
+        <ToggleButton fx:id="edgeModeBtn" styleClass="mode-btn" text="Add Edge (E)" toggleGroup="$modeGroup" />
+        <ToggleButton fx:id="deleteModeBtn" styleClass="mode-btn" text="Delete (D)" toggleGroup="$modeGroup" />
+
+        <Separator styleClass="divider-line" orientation="VERTICAL">
+            <HBox.margin><Insets left="8" right="8" /></HBox.margin>
+        </Separator>
+
+        <Label styleClass="field-label" text="ACTIONS" />
+        <Button onAction="#handleClearCanvas1" styleClass="clear-btn" text="Clear G1">
+            <HBox.margin><Insets left="8" /></HBox.margin>
+        </Button>
+        <Button onAction="#handleClearCanvas2" styleClass="clear-btn" text="Clear G2" />
+
+        <Separator styleClass="divider-line" orientation="VERTICAL">
+            <HBox.margin><Insets left="8" right="8" /></HBox.margin>
+        </Separator>
+
+        <ToggleButton fx:id="matrixToggleBtn" onAction="#handleMatrixToggle"
+                      styleClass="mode-btn" text="Matrix Input">
+            <HBox.margin><Insets left="4" /></HBox.margin>
+        </ToggleButton>
+    </HBox>
+
+    <!-- MATRIX INPUT PANEL — above canvas, toggled by toolbar button -->
+    <HBox fx:id="matrixInputPanel" spacing="16" styleClass="toolbar" visible="false" managed="false">
+        <padding><Insets bottom="12" left="24" right="24" top="12" /></padding>
+
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="GRAPH 1 ADJACENCY MATRIX (comma or space separated rows)" />
+            <TextArea fx:id="matrix1Field" prefRowCount="4"
+                      promptText="0,1,0,1&#10;1,0,1,0&#10;0,1,0,1&#10;1,0,1,0"
+                      styleClass="matrix-input" wrapText="false" />
+            <Button maxWidth="160" onAction="#handleParseMatrix1" styleClass="save-btn" text="Parse → Graph 1" />
+        </VBox>
+
+        <Separator styleClass="divider-line" orientation="VERTICAL" />
+
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label styleClass="field-label" text="GRAPH 2 ADJACENCY MATRIX (comma or space separated rows)" />
+            <TextArea fx:id="matrix2Field" prefRowCount="4"
+                      promptText="0,1,0,1&#10;1,0,1,0&#10;0,1,0,1&#10;1,0,1,0"
+                      styleClass="matrix-input" wrapText="false" />
+            <Button maxWidth="160" onAction="#handleParseMatrix2" styleClass="save-btn" text="Parse → Graph 2" />
+        </VBox>
+    </HBox>
+
+    <!-- CANVAS AREA — VBox.vgrow=ALWAYS so it shrinks when panels above/below expand -->
+    <HBox spacing="12" VBox.vgrow="ALWAYS">
+        <padding><Insets bottom="12" left="16" right="16" top="12" /></padding>
+
+        <VBox styleClass="canvas-container" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" styleClass="canvas-title-bar">
+                <padding><Insets bottom="8" left="16" right="16" top="8" /></padding>
+                <Label styleClass="canvas-label" text="Graph 1" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="badge-label" text="N/E/D hotkeys · Del to remove selection" />
+            </HBox>
+            <Pane fx:id="canvasPane1" VBox.vgrow="ALWAYS">
+                <Canvas fx:id="canvas1" />
+            </Pane>
+        </VBox>
+
+        <VBox styleClass="canvas-container" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" styleClass="canvas-title-bar">
+                <padding><Insets bottom="8" left="16" right="16" top="8" /></padding>
+                <Label styleClass="canvas-label" text="Graph 2" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="badge-label" text="Ctrl+Z/Y undo/redo · T/S chain edge" />
+            </HBox>
+            <Pane fx:id="canvasPane2" VBox.vgrow="ALWAYS">
+                <Canvas fx:id="canvas2" />
+            </Pane>
+        </VBox>
+    </HBox>
+
+    <!-- BOTTOM BAR — always-visible controls, then optional permutation matrix below -->
+    <VBox styleClass="bottom-bar">
+
+        <!-- Always visible: check button + verdict -->
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets bottom="10" left="24" right="24" top="12" /></padding>
+            <Button onAction="#handleCheckIsomorphism" styleClass="check-iso-btn" text="CHECK ISOMORPHISM" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="verdictLabel" styleClass="verdict-label" text="" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="resultLabel" styleClass="result-label" text="" />
+        </HBox>
+
+        <!-- Always visible: invariant labels -->
+        <HBox alignment="CENTER" spacing="12">
+            <padding><Insets bottom="10" left="24" right="24" top="0" /></padding>
+            <Label fx:id="vertexLabel"    styleClass="invariant-label" text="VERTICES  —" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="edgeLabel"      styleClass="invariant-label" text="EDGES  —" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="degreeLabel"    styleClass="invariant-label" text="DEGREE SEQ  —" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="connectedLabel" styleClass="invariant-label" text="CONNECTED  —" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="bipartiteLabel" styleClass="invariant-label" text="BIPARTITE  —" />
+            <Separator styleClass="divider-line" orientation="VERTICAL" />
+            <Label fx:id="eulerLabel"     styleClass="invariant-label" text="EULER CIRCUIT  —" />
+        </HBox>
+
+        <!-- Permutation matrix — expands below, canvas shrinks upward to accommodate -->
+        <!--
+        <VBox fx:id="matrixResultPanel" visible="false" managed="false">
+            <HBox alignment="CENTER" spacing="24">
+                <padding><Insets bottom="12" left="24" right="24" top="6" /></padding>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label styleClass="field-label" text="A₁  (Graph 1 adjacency)" />
+                    <TextArea fx:id="matrixA1Area" editable="false" prefRowCount="4"
+                              styleClass="matrix-display" wrapText="false" />
+                </VBox>
+
+                <VBox spacing="4" alignment="CENTER" minWidth="60">
+                    <Label styleClass="heading-accent" text="×" style="-fx-font-size:22;" />
+                </VBox>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label styleClass="field-label" text="P  (Permutation matrix, A₂ = P·A₁·Pᵀ)" />
+                    <TextArea fx:id="matrixPArea" editable="false" prefRowCount="4"
+                              styleClass="matrix-display" wrapText="false" />
+                </VBox>
+
+                <VBox spacing="4" alignment="CENTER" minWidth="60">
+                    <Label styleClass="heading-accent" text="=" style="-fx-font-size:22;" />
+                </VBox>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label styleClass="field-label" text="A₂  (Graph 2 adjacency)" />
+                    <TextArea fx:id="matrixA2Area" editable="false" prefRowCount="4"
+                              styleClass="matrix-display" wrapText="false" />
+                </VBox>
+
+            </HBox>
+        </VBox>
+        -->
+
+    </VBox>
+
+</VBox>

@@ -1,0 +1,564 @@
+/* ── Navbar ── */
+.nav-bar {
+    -fx-background-color: #020c05;
+    -fx-border-color: transparent transparent #0d2b14 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.nav-username {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 13px;
+}
+
+.logout-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #052e16;
+    -fx-text-fill: #4ade80;
+}
+
+/* ── Canvas Screen ── */
+.toolbar {
+    -fx-background-color: #020c05;
+    -fx-border-color: transparent transparent #0d2b14 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.mode-btn {
+    -fx-background-color: #041509;
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.mode-btn:selected {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: #f0fdf4;
+    -fx-border-color: #4ade80;
+}
+
+.mode-btn:hover {
+    -fx-background-color: #052e16;
+    -fx-text-fill: #4ade80;
+}
+
+.back-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 16 6 16;
+    -fx-cursor: hand;
+}
+
+.back-btn:hover {
+    -fx-background-color: #041509;
+    -fx-text-fill: #4ade80;
+}
+
+.clear-btn {
+    -fx-background-color: #041509;
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-border-color: #0d2b14;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.clear-btn:hover {
+    -fx-background-color: #1a0000;
+    -fx-text-fill: #f87171;
+    -fx-border-color: #7f1d1d;
+}
+
+.save-btn {
+    -fx-background-color: #041509;
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.save-btn:hover {
+    -fx-background-color: #052e16;
+    -fx-text-fill: #4ade80;
+}
+
+.canvas-container {
+    -fx-background-color: #020c05;
+    -fx-border-color: #0d2b14;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.canvas-title-bar {
+    -fx-background-color: #030f07;
+    -fx-border-color: transparent transparent #0d2b14 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.canvas-label {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.bottom-bar {
+    -fx-background-color: #020c05;
+    -fx-border-color: #0d2b14 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.result-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #86efac;
+}
+
+.combo-input {
+    -fx-background-color: #041509;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 12px;
+}
+
+/* ── Check Isomorphism button (wider than standard login-btn) ── */
+.check-iso-btn {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 11 28 11 28;
+    -fx-cursor: hand;
+    -fx-min-width: 200;
+}
+
+.check-iso-btn:hover {
+    -fx-background-color: #15803d;
+}
+
+.check-iso-btn:pressed {
+    -fx-background-color: #166534;
+}
+
+/* ── Matrix input / display areas ── */
+.matrix-input {
+    -fx-background-color: #030f07;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #86efac;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 12px;
+    -fx-control-inner-background: #030f07;
+}
+
+.matrix-display {
+    -fx-background-color: #030f07;
+    -fx-border-color: #0d2b14;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #4ade80;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 12px;
+    -fx-control-inner-background: #030f07;
+}
+
+/* ── Saved pairs scroll pane ── */
+.pairs-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.pairs-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+
+/* ── Quiz Screen ── */
+.quiz-progress {
+    -fx-accent: #4ade80;
+    -fx-background-color: #041509;
+    -fx-pref-height: 4;
+}
+
+.counter-label {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 13px;
+}
+
+.timer-label {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-min-width: 44;
+}
+
+.question-text {
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: CENTER;
+    -fx-alignment: CENTER;
+}
+
+/* secondary action button — used for "NO - Not Isomorphic" */
+.secondary-btn {
+    -fx-background-color: #041509;
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 13 0 13 0;
+    -fx-cursor: hand;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: #052e16;
+    -fx-border-color: #4ade80;
+    -fx-text-fill: #4ade80;
+}
+
+.secondary-btn:pressed {
+    -fx-background-color: #041509;
+    -fx-border-color: #4ade80;
+}
+
+.secondary-btn:disabled {
+    -fx-opacity: 0.45;
+}
+
+.option-btn {
+    -fx-background-color: #041509;
+    -fx-text-fill: #f0fdf4;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-padding: 14 16 14 16;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-pref-height: 52;
+}
+
+.option-btn:hover {
+    -fx-background-color: #052e16;
+    -fx-border-color: #4ade80;
+}
+
+/* ── Dashboard Cards ── */
+.dashboard-card {
+    -fx-background-color: #041509;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+.dashboard-card:hover {
+    -fx-border-color: #4ade80;
+    -fx-background-color: #052e16;
+}
+
+.card-title {
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.card-subtitle {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 13px;
+}
+
+/* ── Results Screen ── */
+.score-label {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+}
+
+.score-subtitle {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 18px;
+}
+
+.feedback-label {
+    -fx-font-size: 15px;
+    -fx-text-alignment: CENTER;
+    -fx-alignment: CENTER;
+}
+
+/* ── Root ── */
+.root-container {
+    -fx-background-color: #020c05;
+}
+
+/* ── Left Panel ── */
+.left-panel {
+    -fx-background-color: #020c05;
+    -fx-border-color: transparent #0d2b14 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.logo-text {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.badge-box {
+    -fx-background-color: #052e16;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 6 14 6 14;
+    -fx-max-width: 320;
+}
+
+.badge-label {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 11px;
+}
+
+.heading-primary {
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.heading-accent {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.left-subtitle {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 4;
+}
+
+.feature-dot {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 8px;
+}
+
+.feature-text {
+    -fx-text-fill: #bbf7d0;
+    -fx-font-size: 13px;
+}
+
+/* ── Right Panel ── */
+.right-panel {
+    -fx-background-color: #030f07;
+    -fx-border-color: #0d2b14 transparent transparent transparent;
+    -fx-border-width: 0 0 0 1;
+}
+
+.form-title {
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.form-subtitle {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 13px;
+}
+
+.field-label {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.error-label {
+    -fx-text-fill: #f87171;
+    -fx-font-size: 13px;
+}
+
+.text-input {
+    -fx-background-color: #041509;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #f0fdf4;
+    -fx-prompt-text-fill: #166534;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14 10 14;
+}
+
+.text-input:focused {
+    -fx-border-color: #4ade80;
+}
+
+.forgot-link {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 12px;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.login-btn {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 13 0 13 0;
+    -fx-cursor: hand;
+}
+
+.login-btn:hover {
+    -fx-background-color: #15803d;
+}
+
+.login-btn:pressed {
+    -fx-background-color: #166534;
+}
+
+.login-btn:disabled {
+    -fx-opacity: 0.45;
+}
+
+.divider-line {
+    -fx-background-color: #0d2b14;
+}
+
+.divider-text {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 11px;
+}
+
+.register-text {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 13px;
+}
+
+.register-link {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ── Isomorphism Report ── */
+.verdict-label {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.invariant-label {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* defined after invariant-label so they win the specificity tie */
+.pass-text {
+    -fx-text-fill: #4ade80;
+}
+
+.fail-text {
+    -fx-text-fill: #f87171;
+}
+
+/* ── Pair Row Item ── */
+.pair-row {
+    -fx-background-color: #041509;
+    -fx-border-color: #166534;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+    -fx-spacing: 10;
+}
+
+.pair-row:hover {
+    -fx-background-color: #052e16;
+    -fx-border-color: #4ade80;
+}
+
+.pair-row-name {
+    -fx-text-fill: #f0fdf4;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.pair-row-info {
+    -fx-text-fill: #86efac;
+    -fx-font-size: 11px;
+}
+
+.pair-row-hint {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 11px;
+}
+
+.pair-empty-message {
+    -fx-text-fill: #4ade80;
+    -fx-font-size: 12px;
+}
+
+/* ── Timer States ── */
+.timer-label-normal {
+    -fx-text-fill: #4ade80;
+}
+
+.timer-label-critical {
+    -fx-text-fill: #f87171;
+}
+
+/* ── Feedback Label States ── */
+.feedback-pass {
+    -fx-text-fill: #4ade80;
+}
+
+.feedback-fail {
+    -fx-text-fill: #f87171;
+}

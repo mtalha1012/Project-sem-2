@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox styleClass="root-container" stylesheets="@../css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.talha.quiz.projectsem2.controller.LoginController">
+
+   <!-- LEFT BRANDING PANEL — alignment="CENTER_LEFT" distributes vertical space evenly -->
+   <VBox alignment="CENTER_LEFT" styleClass="left-panel" HBox.hgrow="ALWAYS">
+      <padding><Insets bottom="48" left="56" right="56" top="48" /></padding>
+
+      <HBox alignment="CENTER_LEFT">
+         <Label styleClass="logo-text" text="IsoGrapher" />
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="badge-box">
+         <VBox.margin><Insets top="28" /></VBox.margin>
+         <Label styleClass="badge-label" text="● Interactive Graph Theory Platform" />
+      </HBox>
+
+      <Label styleClass="heading-primary" text="Learn graph theory" wrapText="true">
+         <VBox.margin><Insets top="20" /></VBox.margin>
+      </Label>
+      <Label styleClass="heading-accent" text="the visual way." wrapText="true" />
+
+      <Label maxWidth="340" styleClass="left-subtitle"
+             text="Draw graphs, check isomorphism, and practice core concepts with instant feedback."
+             wrapText="true">
+         <VBox.margin><Insets top="12" /></VBox.margin>
+      </Label>
+
+      <VBox spacing="14">
+         <VBox.margin><Insets top="36" /></VBox.margin>
+         <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label styleClass="feature-dot" text="●" />
+            <Label styleClass="feature-text" text="Interactive graph canvas" />
+         </HBox>
+         <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label styleClass="feature-dot" text="●" />
+            <Label styleClass="feature-text" text="Isomorphism checker with permutation matrix" />
+         </HBox>
+         <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label styleClass="feature-dot" text="●" />
+            <Label styleClass="feature-text" text="Visual graph-pair quizzes" />
+         </HBox>
+      </VBox>
+   </VBox>
+
+   <!-- RIGHT FORM PANEL -->
+   <VBox alignment="CENTER" maxWidth="480" minWidth="380" styleClass="right-panel">
+      <padding><Insets bottom="48" left="44" right="44" top="48" /></padding>
+
+      <Label styleClass="form-title" text="Sign in" />
+      <Label styleClass="form-subtitle" text="Enter your credentials to access your account">
+         <VBox.margin><Insets bottom="32" top="4" /></VBox.margin>
+      </Label>
+
+      <Label styleClass="field-label" text="USERNAME" />
+      <TextField fx:id="usernameField" promptText="Enter your username" styleClass="text-input">
+         <VBox.margin><Insets bottom="18" top="6" /></VBox.margin>
+      </TextField>
+
+      <Label styleClass="field-label" text="PASSWORD" />
+      <PasswordField fx:id="passwordField" promptText="••••••••" styleClass="text-input">
+         <VBox.margin><Insets top="6" /></VBox.margin>
+      </PasswordField>
+
+      <HBox alignment="CENTER_RIGHT">
+         <VBox.margin><Insets bottom="24" top="6" /></VBox.margin>
+         <Hyperlink styleClass="forgot-link" text="Forgot password?" />
+      </HBox>
+      <Label fx:id="errorLabel" styleClass="error-label" text="Invalid username or password"
+             visible="false" managed="false" />
+
+      <Button fx:id="loginButton" maxWidth="Infinity" onAction="#handleLogin"
+              styleClass="login-btn" text="SIGN IN">
+         <VBox.margin><Insets bottom="24" top="8" /></VBox.margin>
+      </Button>
+
+      <HBox alignment="CENTER" spacing="12">
+         <VBox.margin><Insets bottom="20" /></VBox.margin>
+         <Separator styleClass="divider-line" HBox.hgrow="ALWAYS" />
+         <Label styleClass="divider-text" text="NEW HERE?" />
+         <Separator styleClass="divider-line" HBox.hgrow="ALWAYS" />
+      </HBox>
+
+      <HBox alignment="CENTER" spacing="4">
+         <Label styleClass="register-text" text="Don't have an account?" />
+         <Hyperlink fx:id="registerLink" onAction="#handleRegisterLink" styleClass="register-link" text="Create one" />
+      </HBox>
+
+   </VBox>
+</HBox>

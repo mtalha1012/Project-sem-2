@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox styleClass="pair-row" stylesheets="@../css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.talha.quiz.projectsem2.controller.PairItemController">
+
+    <VBox spacing="2">
+        <Label fx:id="nameLabel" styleClass="pair-row-name" text="Pair Name" />
+        <Label fx:id="infoLabel" styleClass="pair-row-info" text="Info" />
+    </VBox>
+
+    <Region HBox.hgrow="ALWAYS" />
+
+    <Label fx:id="hintLabel" styleClass="pair-row-hint" text="Open →" />
+
+</HBox>

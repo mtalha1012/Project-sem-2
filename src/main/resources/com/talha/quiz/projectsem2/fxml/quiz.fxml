@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="root-container" stylesheets="@../css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.talha.quiz.projectsem2.controller.Quiz">
+
+    <!-- TOP NAVBAR -->
+    <HBox alignment="CENTER_LEFT" styleClass="nav-bar" spacing="16">
+        <padding><Insets bottom="12" left="24" right="24" top="12" /></padding>
+
+        <Label styleClass="logo-text" text="IsoGrapher" />
+
+        <HBox alignment="CENTER_LEFT" styleClass="badge-box">
+            <HBox.margin><Insets left="12" /></HBox.margin>
+            <Label styleClass="badge-label" text="● Visual Graph Quiz" />
+        </HBox>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <HBox alignment="CENTER" spacing="8">
+            <Label styleClass="feature-text" text="Question" />
+            <Label fx:id="questionCounterLabel" styleClass="timer-label" text="1 / 6" />
+        </HBox>
+
+        <Separator styleClass="divider-line" orientation="VERTICAL">
+            <HBox.margin><Insets left="4" right="4" /></HBox.margin>
+        </Separator>
+
+        <HBox alignment="CENTER" spacing="6">
+            <Label styleClass="feature-text" text="Time" />
+            <Label fx:id="timerLabel" styleClass="timer-label" text="40s" />
+        </HBox>
+
+        <ProgressBar fx:id="progressBar" prefWidth="120" progress="0" styleClass="quiz-progress">
+            <HBox.margin><Insets left="8" /></HBox.margin>
+        </ProgressBar>
+
+        <Button fx:id="backButton" onAction="#handleBack" styleClass="back-btn" text="← Dashboard">
+            <HBox.margin><Insets left="8" /></HBox.margin>
+        </Button>
+    </HBox>
+
+    <!-- QUESTION PROMPT -->
+    <HBox alignment="CENTER">
+        <padding><Insets bottom="8" left="24" right="24" top="14" /></padding>
+        <Label styleClass="question-text" text="Are these two graphs isomorphic?" />
+    </HBox>
+
+    <!-- DUAL CANVAS AREA -->
+    <HBox spacing="12" VBox.vgrow="ALWAYS">
+        <padding><Insets bottom="10" left="16" right="16" top="0" /></padding>
+
+        <!-- Graph A -->
+        <VBox styleClass="canvas-container" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" styleClass="canvas-title-bar">
+                <padding><Insets bottom="8" left="16" right="16" top="8" /></padding>
+                <Label styleClass="canvas-label" text="Graph A" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="badge-label" text="Read only" />
+            </HBox>
+            <Pane fx:id="quizPane1" VBox.vgrow="ALWAYS">
+                <Canvas fx:id="quizCanvas1" />
+            </Pane>
+        </VBox>
+
+        <!-- Graph B -->
+        <VBox styleClass="canvas-container" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" styleClass="canvas-title-bar">
+                <padding><Insets bottom="8" left="16" right="16" top="8" /></padding>
+                <Label styleClass="canvas-label" text="Graph B" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="badge-label" text="Read only" />
+            </HBox>
+            <Pane fx:id="quizPane2" VBox.vgrow="ALWAYS">
+                <Canvas fx:id="quizCanvas2" />
+            </Pane>
+        </VBox>
+    </HBox>
+
+    <!-- BOTTOM ANSWER BAR -->
+    <VBox styleClass="bottom-bar">
+        <HBox alignment="CENTER" spacing="32">
+            <padding><Insets bottom="14" left="24" right="24" top="14" /></padding>
+            <Button fx:id="yesBtn" maxWidth="250" onAction="#handleYes"
+                    styleClass="login-btn" text="YES — Isomorphic" />
+            <Button fx:id="noBtn" maxWidth="250" onAction="#handleNo"
+                    styleClass="secondary-btn" text="NO — Not Isomorphic" />
+        </HBox>
+        <HBox alignment="CENTER">
+            <padding><Insets bottom="12" /></padding>
+            <Label fx:id="quizResultLabel" styleClass="verdict-label" text="" />
+        </HBox>
+    </VBox>
+
+</VBox>

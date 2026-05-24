@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox styleClass="root-container" stylesheets="@../css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.talha.quiz.projectsem2.controller.Dashboard">
+
+    <!-- LEFT BRANDING PANEL — fills remaining width, content vertically centered -->
+    <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" styleClass="left-panel">
+        <padding><Insets bottom="40" left="56" right="56" top="40" /></padding>
+
+        <HBox alignment="CENTER_LEFT">
+            <Label styleClass="logo-text" text="IsoGrapher" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="badge-box">
+            <VBox.margin><Insets top="28" /></VBox.margin>
+            <Label styleClass="badge-label" text="● Interactive Graph Theory Platform" />
+        </HBox>
+
+        <Label styleClass="heading-primary" text="Navigate your" wrapText="true">
+            <VBox.margin><Insets top="20" /></VBox.margin>
+        </Label>
+        <Label styleClass="heading-accent" text="learning journey." wrapText="true" />
+
+        <Label maxWidth="340" styleClass="left-subtitle"
+               text="Choose a module below to start drawing graphs or testing your graph theory knowledge."
+               wrapText="true">
+            <VBox.margin><Insets top="12" /></VBox.margin>
+        </Label>
+
+        <VBox spacing="14">
+            <VBox.margin><Insets top="32" /></VBox.margin>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label styleClass="feature-dot" text="●" />
+                <Label styleClass="feature-text" text="Interactive dual-graph canvas" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label styleClass="feature-dot" text="●" />
+                <Label styleClass="feature-text" text="VF2 isomorphism checker with matrix proof" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label styleClass="feature-dot" text="●" />
+                <Label styleClass="feature-text" text="Visual graph-pair quizzes" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label styleClass="feature-dot" text="●" />
+                <Label styleClass="feature-text" text="Save &amp; reload graph pairs" />
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- RIGHT PANEL -->
+    <VBox alignment="TOP_CENTER" minWidth="400" maxWidth="500" styleClass="right-panel">
+        <padding><Insets bottom="32" left="40" right="40" top="40" /></padding>
+
+        <Label styleClass="form-title" text="Dashboard" />
+        <Label fx:id="usernameLabel" styleClass="form-subtitle" text="">
+            <VBox.margin><Insets bottom="28" top="4" /></VBox.margin>
+        </Label>
+
+        <!-- Graph Canvas Card -->
+        <Label styleClass="field-label" text="GRAPH TOOLS" />
+        <VBox spacing="8" styleClass="dashboard-card">
+            <VBox.margin><Insets bottom="16" top="8" /></VBox.margin>
+            <padding><Insets bottom="16" left="20" right="20" top="16" /></padding>
+            <Label styleClass="card-title" text="Graph Canvas" />
+            <Label maxWidth="360" styleClass="card-subtitle"
+                   text="Draw two graphs, check isomorphism, and view the permutation matrix." wrapText="true" />
+            <Button maxWidth="Infinity" onAction="#handleGraphCanvas" styleClass="login-btn" text="OPEN CANVAS">
+                <VBox.margin><Insets top="8" /></VBox.margin>
+            </Button>
+        </VBox>
+
+        <!-- Quiz Card -->
+        <Label styleClass="field-label" text="PRACTICE" />
+        <VBox spacing="8" styleClass="dashboard-card">
+            <VBox.margin><Insets bottom="16" top="8" /></VBox.margin>
+            <padding><Insets bottom="16" left="20" right="20" top="16" /></padding>
+            <Label styleClass="card-title" text="Visual Graph Quiz" />
+            <Label maxWidth="360" styleClass="card-subtitle"
+                   text="Decide whether pairs of drawn graphs are isomorphic. Min 6 vertices each." wrapText="true" />
+            <Button maxWidth="Infinity" onAction="#handleQuiz" styleClass="login-btn" text="START QUIZ">
+                <VBox.margin><Insets top="8" /></VBox.margin>
+            </Button>
+        </VBox>
+
+<!--        &lt;!&ndash; Saved Pairs &ndash;&gt;-->
+<!--        <Label fx:id="savedPairsSectionLabel" styleClass="field-label" text="SAVED PAIRS" />-->
+<!--        <ListView fx:id="savedPairsListView" maxHeight="220" styleClass="pairs-scroll">-->
+<!--            <VBox.margin><Insets bottom="16" top="8" /></VBox.margin>-->
+<!--        </ListView>-->
+
+        <HBox alignment="CENTER" spacing="12">
+            <VBox.margin><Insets bottom="16" /></VBox.margin>
+            <Separator styleClass="divider-line" HBox.hgrow="ALWAYS" />
+            <Label styleClass="divider-text" text="SESSION" />
+            <Separator styleClass="divider-line" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="4">
+            <Label styleClass="register-text" text="Done for now?" />
+            <Button fx:id="logoutButton" onAction="#handleLogout" styleClass="logout-btn" text="Sign out" />
+        </HBox>
+
+    </VBox>
+</HBox>
